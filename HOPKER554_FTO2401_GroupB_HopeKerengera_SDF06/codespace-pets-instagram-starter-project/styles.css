@@ -1,0 +1,113 @@
+/* Base Styles */
+
+:root {
+    font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Open Sans", Arial, sans-serif;
+    min-height: 100vh;
+    background-color: #fafafa;
+    color: #262626;
+    padding-bottom: 3rem;
+}
+
+img {
+    display: block;
+}
+
+/* PROFILE SECTION */
+.profile {
+    display: flex;
+    flex-direction: row; /*put profile items in a row instead of colum*/
+    justify-content: center; /*place profile items in center of row*/
+    margin: 20px;
+}
+
+.profile-image{
+    width: 10%;
+    border-radius: 50%;
+    margin: 10px 50px 10px 50px; /* top right bottom left */
+}
+
+.profile-image img{ /*targeting image itself*/
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.profile-info{
+    display: flex;
+    flex-direction: column; /*put profile items in a column*/
+    align-items: flex-start; /*items start at the right side of div*/
+}
+.profile-user-settings{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /*start at beginning of row*/
+    align-items: center; /*center items in the middle of column*/
+}
+
+.btn-profile-edit-btn{ 
+    margin-left: 40px; /*space between button and username*/
+    margin-right: 5px; /*space between button and icon*/
+}
+
+.btn-profile-edit-btn:hover{
+    border: blue;
+}
+
+.profile-stats ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.profile-stats li{
+    margin-right: 40px; /*creating space between listed items*/
+    cursor: pointer;
+}
+
+/*GALLERY SECTION*/
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /*creating 3 columns*/
+    gap: 5px; /*gap between columns*/
+    padding: 30px;
+    margin: 10px;
+    width: 100%;
+}
+
+.gallery-item {
+    width: 33%;
+    height:auto;
+}
+
+.gallery-image{
+    width: 100%;
+    height: auto;
+}
+
+
+/*LOADER*/
+
+@keyframes loader {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loader {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(45deg, #545454, #999999);
+    border-radius: 50%;
+    animation: loader 1s linear infinite;} /*animation name, duration, style, repetition*/
+
