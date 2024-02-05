@@ -1,7 +1,7 @@
 /* Base Styles */
 
 :root {
-    font-size: 10px;
+    font-size: 15px;
 }
 
 *,
@@ -27,46 +27,84 @@ img {
     display: flex;
     flex-direction: row; /*put profile items in a row instead of colum*/
     justify-content: center; /*place profile items in center of row*/
-    margin: 20px;
+    gap: 40px;
+    margin-right: 50px;
+    margin-left: 50px;
 }
 
 .profile-image{
-    width: 10%;
+    width: 150px;
+    height: 150px;
+    background-image: linear-gradient(#A01DB6, #E04064, #FF7923, #FED482); /*creates a border look-alike*/
     border-radius: 50%;
+    padding: 7px 7px; /*making border thinner, since it is a background with picture in middle, have to make padding smaller */
     margin: 10px 50px 10px 50px; /* top right bottom left */
+
 }
 
 .profile-image img{ /*targeting image itself*/
     border-radius: 50%;
     width: 100%;
     height: 100%;
+    object-fit: cover; /*keeps it as a circle*/
+    background-color: white; /*make the background of png white*/
+ 
 }
 
 .profile-info{
     display: flex;
     flex-direction: column; /*put profile items in a column*/
     align-items: flex-start; /*items start at the right side of div*/
+    font-weight: 600;
 }
 .profile-user-settings{
     display: flex;
     flex-direction: row;
     justify-content: flex-start; /*start at beginning of row*/
     align-items: center; /*center items in the middle of column*/
+
 }
 
 .btn-profile-edit-btn{ 
     margin-left: 40px; /*space between button and username*/
     margin-right: 5px; /*space between button and icon*/
+    border-color: black;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #FAFAFA;
 }
 
 .btn-profile-edit-btn:hover{
-    border: blue;
+    border-color: #1877F2;
+    border-radius: 5px;
+    border-width: 2px;
+}
+
+.btn-profile-settings{
+    width: 22px;
+    height: 22px;
+    background-color: #FAFAFA;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.btn-profile-settings:hover{
+    border-color: #1877F2;
+    border-radius: 5px;
+    border-width: 2px;
 }
 
 .profile-stats ul{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+
 }
 
 .profile-stats li{
@@ -76,23 +114,44 @@ img {
 
 /*GALLERY SECTION*/
 
+main .container{
+    margin-right: 55px; /*space around the gallery*/
+    margin-left: 55px;
+}
+
+.gallery-item{
+    position: relative;
+}
+
+.gallery-item-info::after{
+    content: '';
+    position: absolute; /*Positioned within gallery item*/
+    top: 0;
+    height: 0;
+    width: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3); /*grey transparent overlay*/
+}
+
+.gallery-item-info:hover:after{ /*when hovered over*/
+    width: 100%;
+    height: 100%;
+}
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /*creating 3 columns*/
-    gap: 5px; /*gap between columns*/
+    gap: 1px; /*gap between columns*/
     padding: 30px;
-    margin: 10px;
+    margin: 20px; /*leads to smaller gaps for some reason*/
     width: 100%;
-}
-
-.gallery-item {
-    width: 33%;
-    height:auto;
 }
 
 .gallery-image{
-    width: 100%;
-    height: auto;
+    width: 350px;
+    height: 350px;
+    overflow: hidden; /*any part of image that does not fit into container is hidden*/
+    object-fit: cover; /*fits into container while, aspect ratio remains*/
 }
 
 
@@ -109,5 +168,18 @@ img {
     height: 35px;
     background: linear-gradient(45deg, #545454, #999999);
     border-radius: 50%;
-    animation: loader 1s linear infinite;} /*animation name, duration, style, repetition*/
+    animation: loader 1s linear infinite; /*animation name, duration, style, repetition*/
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center; /*put inner circle (spinner) in the middle of loader*/
+}
 
+#spinner{
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    position:absolute;
+    text-align: center;
+}
